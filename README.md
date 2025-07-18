@@ -20,12 +20,12 @@ Universalis is that thread for the digital age, providing:
 ## 🛠️ Core Tools
 
 ### Content Conversion Tools
-- **[mdtexpdf](../mdtexpdf/)** - Markdown → PDF with LaTeX typesetting
-- **[mdaudiobook](../mdaudiobook/)** - Markdown → Audio with math narration
-- **[mdepub](../mdepub/)** - Markdown → EPUB for mobile reading
+- **[mdtexpdf](https://github.com/ucli-tools/mdtexpdf)** - Markdown → PDF with LaTeX typesetting
+- **[mdaudiobook](https://github.com/ucli-tools/mdaudiobook)** - Markdown → Audio with math narration
+- **[mdepub](https://github.com/ucli-tools/mdepub)** - Markdown → EPUB for mobile reading
 
 ### Library Template
-- **[library](../library/)** - Universal web library template (Astro.js)
+- **[library](https://github.com/ucli-tools/library)** - Universal web library template (Astro.js)
 
 ## 🏗️ Architecture
 

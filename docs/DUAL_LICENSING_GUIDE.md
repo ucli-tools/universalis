@@ -292,7 +292,7 @@ Start with a simple implementation and refine your approach based on feedback an
 ## 📚 Resources
 
 - [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)
-- [Dual Licensing Examples](../examples/dual_licensing_setup/)
+- [Implementation Examples](EXAMPLES.md)
 - [Legal Resources](https://choosealicense.com/)
 - [FOSS Best Practices](https://opensource.guide/)
 
