@@ -31,8 +31,7 @@ This guide shows you how to go from **any computer** to having a complete, profe
 │  ├─ Clean FOSS foundation                                   │
 │  └─ Built with your own hands                               │
 ├─────────────────────────────────────────────────────────────┤
-│  Layer 1: System Builder                                    │
-│  ├─ isobootmaker (Build your own Ubuntu ISO)                │
+│  Layer 1: System Builder                        
 │  ├─ Download official Ubuntu 24.04 LTS                      │
 │  ├─ Create bootable USB with safety checks                  │
 │  └─ Complete self-sufficiency from any computer             │
