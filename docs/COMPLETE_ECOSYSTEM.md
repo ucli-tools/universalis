@@ -53,14 +53,14 @@ This ecosystem embodies the principle that **knowledge equals power** by providi
 ### The Self-Sufficiency Chain
 
 ```
-Any Computer → isobootmaker → Ubuntu 24.04 → ucli → Publishing Tools → Professional Content
-
-┌──────────────┐    ┌───────────────┐    ┌───────────────┐    ┌───────────────┐
-│ Start with   │    │ Build your    │    │ Install tool  │    │ Create pro    │
-│ any computer │────│ own Ubuntu    │────│ ecosystem     │────│ content       │
-│ (even old!)  │    │ system        │    │ with ucli     │    │ pipeline      │
-└──────────────┘    └───────────────┘    └───────────────┘    └───────────────┘
+Any Computer → Ubuntu 24.04 → ucli → Publishing Tools → Professional Content
 ```
+
+**Simple 4-step process:**
+1. **Start with any computer** - Windows, macOS, or Linux
+2. **Create Ubuntu USB** - Use Etcher, Rufus, or dd command
+3. **Install ucli** - One command gets the tool ecosystem
+4. **Build content** - Professional multi-format publishing
 
 **No external dependencies. No subscriptions. No vendor control. Complete freedom.**
 
