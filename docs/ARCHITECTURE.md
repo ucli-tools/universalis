@@ -27,6 +27,131 @@ Universalis follows a **modular architecture** where independent universal tools
 └─────────────────────────────────────────────────────────────┘
 ```
 
+## 🎯 Core Design Pattern: Metadata/Data Separation
+
+### The Architecture
+
+Universalis is built on a **fundamental separation** that enables universal tools to work with particular content:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Single Source File                       │
+├─────────────────────────────────────────────────────────────┤
+│  ┌─────────────────────┐    ┌─────────────────────────┐     │
+│  │     METADATA        │    │        DATA             │     │
+│  │   (YAML Header)     │    │   (Markdown Content)    │     │
+│  │                     │    │                         │     │
+│  │ • Common fields     │    │ • Universal format      │     │
+│  │ • Tool-specific     │    │ • Human-readable        │     │
+│  │ • Processing opts   │    │ • Version-controlled    │     │
+│  │ • Output control    │    │ • Platform-agnostic     │     │
+│  └─────────────────────┘    └─────────────────────────┘     │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Why This Design Works
+
+#### **Universal Data Format**
+- **Markdown**: Human-readable, version-controllable, platform-agnostic
+- **Single source**: One file contains everything needed
+- **Tool-agnostic**: Any tool can read the content
+- **Future-proof**: Markdown will always be readable
+
+#### **Flexible Metadata System**
+- **Common fields**: `title`, `author`, `description` work across all tools
+- **Tool-specific options**: `pdf_options`, `audio_options`, `epub_options`
+- **Processing control**: Each tool reads only what it needs
+- **Extensible**: New tools can add their own metadata fields
+
+#### **Separation of Concerns**
+```
+Content Creation Layer
+├── Authors focus on: Writing great content in Markdown
+├── Metadata handles: Processing instructions and options
+└── Tools handle: Format conversion and optimization
+
+Processing Layer
+├── mdtexpdf reads: Common metadata + pdf_options
+├── mdaudiobook reads: Common metadata + audio_options
+├── mdepub reads: Common metadata + epub_options
+└── library reads: Common metadata + display options
+```
+
+### Example: One File, Multiple Outputs
+
+```yaml
+---
+# METADATA: Instructions for all tools
+title: "Advanced Mathematics Guide"
+author: "Dr. Jane Smith"
+description: "Comprehensive guide to advanced mathematical concepts"
+tags: ["mathematics", "education", "advanced"]
+
+# Tool-specific processing options
+pdf_options:
+  header_footer: "all"
+  page_numbers: true
+  font_size: 12
+  
+audio_options:
+  voice: "google_en-us-neural2-d"
+  speed: "0.9"
+  math_rendering: "detailed"
+  
+epub_options:
+  cover_image: "cover.jpg"
+  chapter_breaks: true
+  mobile_optimized: true
+---
+
+# DATA: Universal content in Markdown
+# Advanced Mathematics Guide
+
+## Introduction
+This guide covers advanced mathematical concepts...
+
+## Linear Algebra
+### Vectors and Matrices
+A vector in $\mathbb{R}^n$ is defined as...
+
+$$\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$$
+```
+
+### Processing Flow
+
+```
+Single Source File
+       │
+       ├─ mdtexpdf ──────┐
+       │   │             │
+       │   ├─ Reads: title, author, pdf_options
+       │   └─ Produces: Professional PDF
+       │
+       ├─ mdaudiobook ───┐
+       │   │             │
+       │   ├─ Reads: title, author, audio_options
+       │   └─ Produces: Narrated Audio
+       │
+       ├─ mdepub ────────┐
+       │   │             │
+       │   ├─ Reads: title, author, epub_options
+       │   └─ Produces: Mobile EPUB
+       │
+       └─ library ───────┐
+           │             │
+           ├─ Reads: title, author, description, tags
+           └─ Produces: Web Library Entry
+```
+
+### Benefits of This Architecture
+
+1. **Single Source of Truth**: One file contains everything needed
+2. **Tool Independence**: Each tool can evolve independently
+3. **Extensibility**: New tools can be added without changing existing content
+4. **Maintainability**: Content and processing instructions are co-located
+5. **Version Control**: Everything is tracked together
+6. **Human Readable**: Authors can understand and modify all aspects
+
 ## 🔧 Core Components
 
 ### Universal Tools Layer
