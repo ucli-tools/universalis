@@ -45,13 +45,33 @@ Universal Tools (FOSS) → Particular Implementations (Your Choice)
 
 ## 🚀 Quick Start
 
-### 1. Choose Your Tools
-Pick the tools you need:
+### Option 1: Complete FOSS Stack (Recommended)
+
+For the full ecosystem experience, start with Ubuntu 24.04 and ucli:
+
 ```bash
-# Clone the tools you want to use
+# Install ucli (Universal Command Line Interface)
+wget https://raw.githubusercontent.com/ucli-tools/ucli/main/ucli.sh
+bash ./ucli.sh install
+rm ./ucli.sh
+
+# Install prerequisites and login
+ucli prereq
+ucli login ucli-tools
+
+# Install all publishing tools at once
+ucli build mdtexpdf mdaudiobook mdepub library
+```
+
+### Option 2: Manual Installation
+```bash
+# Install mdtexpdf
 git clone https://github.com/ucli-tools/mdtexpdf
+cd mdtexpdf && make install
+
+# Install library template
 git clone https://github.com/ucli-tools/library
-# ... etc
+cd library && npm install
 ```
 
 ### 2. Set Up Your Content
@@ -81,7 +101,9 @@ mdaudiobook my-content.md
 
 ## 📚 Documentation
 
-### Getting Started
+### 📚 Documentation
+
+- **[Complete Ecosystem Guide](docs/COMPLETE_ECOSYSTEM.md)** - From Ubuntu to full FOSS publishing stack
 - **[Getting Started Guide](docs/GETTING_STARTED.md)** - Complete setup walkthrough
 - **[Architecture Overview](docs/ARCHITECTURE.md)** - How the tools work together
 - **[Philosophy](docs/PHILOSOPHY.md)** - Universal → Particular paradigm
